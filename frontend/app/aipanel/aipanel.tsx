@@ -1,6 +1,7 @@
 // Copyright 2026, Command Line Inc.
 // SPDX-License-Identifier: Apache-2.0
 
+
 import { handleWaveAIContextMenu } from "@/app/aipanel/aipanel-contextmenu";
 import { waveAIHasSelection } from "@/app/aipanel/waveai-focus-utils";
 import { useTabBackground } from "@/app/block/blockutil";
@@ -43,7 +44,7 @@ const AIBlockMask = memo(() => {
             <div
                 className="w-full mt-[44px] h-[calc(100%-44px)] flex items-center justify-center"
                 style={{
-                    backgroundColor: "rgb(from var(--block-bg-color) r g b / 50%)",
+                    backgroundColor: "var(--block-bg-color)",
                 }}
             >
                 <div className="font-bold opacity-70 mt-[-25%] text-[60px]">0</div>
@@ -75,7 +76,7 @@ const KeyCap = memo(({ children, className }: { children: React.ReactNode; class
     return (
         <kbd
             className={cn(
-                "px-1.5 py-0.5 text-xs bg-zinc-700 border border-zinc-600 rounded-sm shadow-sm font-mono",
+                "px-1.5 py-0.5 text-xs bg-keycap border border-keycapborder text-keycapforeground rounded-sm shadow-sm font-mono",
                 className
             )}
         >
@@ -557,12 +558,15 @@ const AIPanelComponentInner = memo(({ roundTopLeft }: AIPanelComponentInnerProps
             ref={containerRef}
             data-waveai-panel="true"
             className={cn(
-                "@container bg-zinc-900/70 flex flex-col relative",
+                "@container flex flex-col relative",
                 model.inBuilder ? "mt-0 h-full" : "mt-1 h-[calc(100%-4px)]",
-                (isDragOver || isReactDndDragOver) && "bg-zinc-800 border-accent",
+                (isDragOver || isReactDndDragOver) && "border-accent",
                 isFocused && !borderColor ? "border-2 border-accent" : "border-2 border-transparent"
             )}
             style={{
+                backgroundColor: (isDragOver || isReactDndDragOver)
+                    ? "var(--aipanel-drag-bg)"
+                    : "var(--aipanel-bg)",
                 borderTopLeftRadius: roundTopLeft ? 10 : 0,
                 borderTopRightRadius: model.inBuilder ? 0 : 10,
                 borderBottomRightRadius: model.inBuilder ? 0 : 10,

@@ -35,6 +35,13 @@
     --color-highlightbg: rgba(255, 255, 255, 0.2);
     --color-accent: rgb(88, 193, 66);
     --color-accenthover: rgb(118, 223, 96);
+    --color-accentforeground: #fff;
+    --color-input: var(--form-element-bg-color);
+    --color-inputborder: var(--form-element-border-color);
+    --color-inputforeground: var(--form-element-text-color);
+    --color-keycap: var(--keybinding-bg-color);
+    --color-keycapborder: var(--keybinding-border-color);
+    --color-keycapforeground: var(--keybinding-color);
 
     --font-sans: "Inter", sans-serif;
     --font-mono: "Hack", monospace;

@@ -1385,6 +1385,7 @@ declare global {
         "app:disablectrlshiftdisplay"?: boolean;
         "app:focusfollowscursor"?: string;
         "app:tabbar"?: string;
+        "app:theme"?: string;
         "feature:waveappbuilder"?: boolean;
         "ai:*"?: boolean;
         "ai:preset"?: string;
@@ -1711,6 +1712,7 @@ declare global {
         selectionBackground: string;
         background: string;
         cursor: string;
+        cursorAccent: string;
     };
 
     // wshrpc.TimeSeriesData

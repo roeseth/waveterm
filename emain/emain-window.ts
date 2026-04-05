@@ -181,7 +181,7 @@ export class WaveBrowserWindow extends BaseWindow {
             } else if (isBlur) {
                 winOpts.vibrancy = "fullscreen-ui";
             } else {
-                winOpts.backgroundColor = "#222222";
+                winOpts.backgroundColor = settings?.["app:theme"] === "light" ? "#fafafa" : "#222222";
             }
         } else if (opts.unamePlatform === "linux") {
             winOpts.titleBarStyle = settings["window:nativetitlebar"] ? "default" : "hidden";
@@ -194,13 +194,13 @@ export class WaveBrowserWindow extends BaseWindow {
             if (isTransparent) {
                 winOpts.transparent = true;
             } else {
-                winOpts.backgroundColor = "#222222";
+                winOpts.backgroundColor = settings?.["app:theme"] === "light" ? "#fafafa" : "#222222";
             }
         } else if (opts.unamePlatform === "win32") {
             winOpts.titleBarStyle = "hidden";
             winOpts.titleBarOverlay = {
-                color: "#222222",
-                symbolColor: "#c3c8c2",
+                color: settings?.["app:theme"] === "light" ? "#fafafa" : "#222222",
+                symbolColor: settings?.["app:theme"] === "light" ? "#333333" : "#c3c8c2",
                 height: 32,
             };
             if (isTransparent) {
@@ -208,7 +208,7 @@ export class WaveBrowserWindow extends BaseWindow {
             } else if (isBlur) {
                 winOpts.backgroundMaterial = "acrylic";
             } else {
-                winOpts.backgroundColor = "#222222";
+                winOpts.backgroundColor = settings?.["app:theme"] === "light" ? "#fafafa" : "#222222";
             }
         }
 

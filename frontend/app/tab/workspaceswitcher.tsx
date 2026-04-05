@@ -95,7 +95,7 @@ const WorkspaceSwitcher = forwardRef<HTMLDivElement>((_, ref) => {
     const workspaceIcon = isActiveWorkspaceSaved ? (
         <i className={makeIconClass(activeWorkspace.icon, false)} style={{ color: activeWorkspace.color }}></i>
     ) : (
-        <WorkspaceSVG />
+        <WorkspaceSVG style={{ color: "var(--main-text-color)" }} />
     );
 
     const saveWorkspace = () => {

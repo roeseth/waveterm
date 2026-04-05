@@ -1,11 +1,13 @@
 // Copyright 2025, Command Line Inc.
 // SPDX-License-Identifier: Apache-2.0
 
+
 import { ModalsRenderer } from "@/app/modals/modalsrenderer";
 import { globalStore } from "@/app/store/jotaiStore";
 import { AppSelectionModal } from "@/builder/app-selection-modal";
 import { BuilderWorkspace } from "@/builder/builder-workspace";
 import { atoms, isDev } from "@/store/global";
+import { AppThemeUpdater } from "@/app/theme/theme-updater";
 import { appHandleKeyDown } from "@/store/keymodel";
 import * as keyutil from "@/util/keyutil";
 import { isBlank } from "@/util/util";
@@ -36,7 +38,8 @@ function BuilderAppInner() {
     const hasDraftApp = !isBlank(builderAppId) && builderAppId.startsWith("draft/");
 
     return (
-        <div className="w-full h-full flex flex-col bg-main-bg text-main-text">
+        <div className="w-full h-full flex flex-col bg-background text-foreground">
+            <AppThemeUpdater />
             <BuilderKeyHandlers />
             <div
                 className="h-9 shrink-0 border-b border-b-border flex items-center justify-center gap-2"

@@ -60,7 +60,9 @@ export function loadMonaco() {
         inherit: true,
         rules: [],
         colors: {
-            "editor.background": "#fefefe",
+            "editor.background": "#00000000",
+            "editorStickyScroll.background": "#ffffff55",
+            "minimap.background": "#ffffff77",
             focusBorder: "#00000000",
         },
     });
@@ -79,4 +81,8 @@ export function loadMonaco() {
         enableSchemaRequest: true,
         schemas: MonacoSchemas,
     });
+}
+
+export function setMonacoTheme(theme: "dark" | "light") {
+    monaco.editor.setTheme(theme === "light" ? "wave-theme-light" : "wave-theme-dark");
 }

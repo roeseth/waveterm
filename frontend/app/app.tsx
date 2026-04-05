@@ -32,6 +32,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { AppBackground } from "./app-bg";
 import { CenteredDiv } from "./element/quickelems";
+import { AppThemeUpdater } from "./theme/theme-updater";
 
 import "./app.scss";
 
@@ -381,6 +382,7 @@ const AppInner = () => {
             <MacOSFirstClickHandler />
             <AppKeyHandlers />
             <AppFocusHandler />
+            <AppThemeUpdater />
             <AppSettingsUpdater />
             <BadgeAutoClearing />
             <DndProvider backend={HTML5Backend}>

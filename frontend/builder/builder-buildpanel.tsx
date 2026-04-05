@@ -102,11 +102,11 @@ const BuilderBuildPanel = memo(() => {
         : outputLines.filter((line) => !line.startsWith("[debug]") && line.trim().length > 0);
 
     return (
-        <div className="w-full h-full flex flex-col bg-black rounded-br-2">
-            <div className="flex-shrink-0 px-3 py-2 border-b border-gray-700 flex items-center justify-between">
-                <span className="text-sm font-semibold text-gray-300">Build Output</span>
+        <div className="w-full h-full flex flex-col bg-background rounded-br-2">
+            <div className="flex-shrink-0 px-3 py-2 border-b border-border flex items-center justify-between">
+                <span className="text-sm font-semibold text-foreground">Build Output</span>
                 <div className="flex items-center gap-4">
-                    <label className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                    <label className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
                         <input
                             type="checkbox"
                             checked={showDebug}
@@ -116,13 +116,13 @@ const BuilderBuildPanel = memo(() => {
                         Debug
                     </label>
                     <button
-                        className="px-3 py-1 text-sm font-medium rounded transition-colors bg-accent/80 text-white hover:bg-accent cursor-pointer"
+                        className="px-3 py-1 text-sm font-medium rounded transition-colors bg-accent/80 text-accentforeground hover:bg-accent cursor-pointer"
                         onClick={handleSendToAI}
                     >
                         Send Output to AI
                     </button>
                     <button
-                        className="px-3 py-1 text-sm font-medium rounded transition-colors bg-accent/80 text-white hover:bg-accent cursor-pointer"
+                        className="px-3 py-1 text-sm font-medium rounded transition-colors bg-accent/80 text-accentforeground hover:bg-accent cursor-pointer"
                         onClick={handleRestart}
                     >
                         Restart App
@@ -132,7 +132,7 @@ const BuilderBuildPanel = memo(() => {
             <div ref={scrollRef} className="flex-1 overflow-y-auto overflow-x-auto p-2">
                 <pre
                     ref={preRef}
-                    className="font-mono text-xs text-gray-100 whitespace-pre"
+                    className="font-mono text-xs text-foreground whitespace-pre"
                     onMouseUp={handleMouseUp}
                     onContextMenu={handleContextMenu}
                 >

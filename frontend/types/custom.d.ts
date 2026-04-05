@@ -91,6 +91,7 @@ declare global {
         getWebviewPreload: () => string; // get-webview-preload
         getAboutModalDetails: () => AboutModalDetails; // get-about-modal-details
         getZoomFactor: () => number; // get-zoom-factor
+        setAppTheme: (theme: "dark" | "light") => void; // set-app-theme
         showWorkspaceAppMenu: (workspaceId: string) => void; // workspace-appmenu-show
         showBuilderAppMenu: (builderId: string) => void; // builder-appmenu-show
         showContextMenu: (workspaceId: string, menu: ElectronContextMenuItem[]) => void; // contextmenu-show

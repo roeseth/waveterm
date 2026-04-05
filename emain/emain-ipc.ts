@@ -284,6 +284,11 @@ export function initIpcHandlers() {
         event.returnValue = getWaveVersion() as AboutModalDetails;
     });
 
+    electron.ipcMain.on("set-app-theme", (_event, theme: "dark" | "light") => {
+        if (theme === "light" || theme === "dark") {
+            electron.nativeTheme.themeSource = theme;
+        }
+    });
     electron.ipcMain.on("get-zoom-factor", (event) => {
         event.returnValue = event.sender.getZoomFactor();
     });

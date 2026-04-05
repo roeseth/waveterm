@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 export const DefaultTermTheme = "default-dark";
+export const DefaultTermThemeLight = "default-light";
 import { RpcApi } from "@/app/store/wshclientapi";
 import { TabRpcClient } from "@/app/store/wshrpcutil";
 import * as TermTypes from "@xterm/xterm";
@@ -42,7 +43,7 @@ export function computeTheme(
         }
     }
     const bgcolor = themeCopy.background;
-    themeCopy.background = "#00000000";
+    themeCopy.background = colord(bgcolor).alpha(0).toHex();
     return [themeCopy, bgcolor];
 }
 

@@ -25,11 +25,11 @@ const StatusDot = memo(() => {
     const builderStatus = useAtomValue(model.builderStatusAtom);
 
     const getStatusDotColor = (status: string | null | undefined): string => {
-        if (!status) return "bg-gray-500";
+        if (!status) return "bg-muted";
         switch (status) {
             case "init":
             case "stopped":
-                return "bg-gray-500";
+                return "bg-muted";
             case "building":
                 return "bg-warning";
             case "running":
@@ -37,7 +37,7 @@ const StatusDot = memo(() => {
             case "error":
                 return "bg-error";
             default:
-                return "bg-gray-500";
+                return "bg-muted";
         }
     };
 
@@ -63,7 +63,7 @@ const TabButton = memo(({ label, tabType, isActive, isAppFocused, onClick, showS
             className={cn(
                 "px-4 py-2 text-sm font-medium transition-colors cursor-pointer",
                 isActive
-                    ? `text-primary border-b-2 ${isAppFocused ? "border-accent" : "border-gray-500"}`
+                    ? `text-primary border-b-2 ${isAppFocused ? "border-accent" : "border-border"}`
                     : "text-secondary hover:text-primary border-b-2 border-transparent"
             )}
             onClick={onClick}

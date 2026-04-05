@@ -102,7 +102,7 @@ function computeBgColor(fullConfig: FullConfigType): string {
     } else if (isBlur) {
         return "#00000000";
     } else {
-        return "#222222";
+        return settings?.["app:theme"] === "light" ? "#fafafa" : "#222222";
     }
 }
 

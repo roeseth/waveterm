@@ -40,7 +40,7 @@ import { boundNumber, fireAndForget, stringToBase64 } from "@/util/util";
 import * as jotai from "jotai";
 import * as React from "react";
 import { getBlockingCommand } from "./shellblocking";
-import { computeTheme, DefaultTermTheme } from "./termutil";
+import { computeTheme, DefaultTermTheme, DefaultTermThemeLight } from "./termutil";
 import { TermWrap, WebGLSupported } from "./termwrap";
 
 export class TermViewModel implements ViewModel {
@@ -237,7 +237,8 @@ export class TermViewModel implements ViewModel {
         this.termBPMAtom = getOverrideConfigAtom(blockId, "term:allowbracketedpaste");
         this.termThemeNameAtom = useBlockAtom(blockId, "termthemeatom", () => {
             return jotai.atom<string>((get) => {
-                return get(getOverrideConfigAtom(this.blockId, "term:theme")) ?? DefaultTermTheme;
+                const termTheme = get(getSettingsKeyAtom("app:theme")) === "light" ? DefaultTermThemeLight : DefaultTermTheme;
+                return get(getOverrideConfigAtom(this.blockId, "term:theme")) ?? termTheme;
             });
         });
         this.termTransparencyAtom = useBlockAtom(blockId, "termtransparencyatom", () => {
